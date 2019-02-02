@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  geth:
+    image: ethereum/client-go
+    volumes:
+      - /home/ubuntu/:/geth
+    command: "--cache 2048 --maxpeers 50 --datadir geth/.ethereum --rpcapi admin,debug,miner,shh,txpool,personal,eth,net,web3  --rpcport 8545 --rpc --rpcvhosts=* --verbosity=3"
+    restart: on-failure
+    networks:
+      - production

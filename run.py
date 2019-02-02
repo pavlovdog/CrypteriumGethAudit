@@ -24,11 +24,7 @@ if __name__ == '__main__':
         env = {}
         if ind == ethstats_ind:
             env = {'DEPLOY_ETHSTATS': True}
-        # proc = subprocess.Popen(
-        #     ['ssh', '-o', 'StrictHostKeyChecking no', f'{server_user}@{ip}',
-        #      '-i', key_path, 'bash -s', '<', './shell_helpers/launch_project.sh'],
-        #     shell=True
-        # )
+
         proc = subprocess.Popen(
             f'ssh -o StrictHostKeyChecking=no -i {key_path} {server_user}@{ip} "bash -s" < ./shell_helpers/launch_project.sh',
             shell=True

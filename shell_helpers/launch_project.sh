@@ -6,6 +6,8 @@ mkdir .ethereum
 
 cd CrypteriumGethAudit/
 
+chmod +x ./shell_helpers/*
+
 ./shell_helpers/install_docker.sh
 ./shell_helpers/install_dockercompose.sh
 
