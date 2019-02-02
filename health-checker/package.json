@@ -1,0 +1,16 @@
+{
+  "name": "health-checker",
+  "version": "1.0.0",
+  "description": "Server-lke application for checking the sync status of the Geth node",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "request": "^2.88.0",
+    "web3": "^1.0.0-beta.41",
+    "winston": "^3.2.1"
+  }
+}
