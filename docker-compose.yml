@@ -22,6 +22,7 @@ services:
       - 5050:5050
     volumes:
       - ./:/app
+      - /app/health-checker/node_modules
     networks:
       - project
     env_file:

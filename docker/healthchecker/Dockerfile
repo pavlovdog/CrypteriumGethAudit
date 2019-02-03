@@ -8,10 +8,8 @@ RUN apk add --update \
 
 WORKDIR /app/health-checker
 
-COPY package*.json ./
+COPY health-checker/package*.json ./
 
 RUN npm install
-
-COPY . .
 
 CMD ["node", "index.js"]
