@@ -22,6 +22,8 @@ services:
       - 5050:5050
     volumes:
       - ./:/app
+    networks:
+      - project
 
 networks:
   project:

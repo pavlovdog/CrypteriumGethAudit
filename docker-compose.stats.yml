@@ -31,9 +31,11 @@ services:
       dockerfile: docker/healthchecker/Dockerfile
     restart: on-failure
     ports:
-      - 3001:3001
+      - 5050:5050
     volumes:
       - ./:/app
+    networks:
+      - project
 
 networks:
   project:
