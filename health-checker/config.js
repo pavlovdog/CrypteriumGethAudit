@@ -1,17 +1,18 @@
+const { envRequire } = require('./utils');
+
 const config = {};
 
-// The load balancer will send request to the port
-config.SERVER_LISTEN_PORT = 5050;
+config.SERVER_LISTEN_PORT = parseInt(envRequire('SERVER_LISTEN_PORT'), 10);
 
-config.REMOTE_URL = 'https://api.blockcypher.com/v1/eth/main';
+config.REMOTE_URL = envRequire('REMOTE_URL');
 
-config.RPC_ADDR = 'geth';
-config.RPC_PORT = 8545;
+config.RPC_ADDR = envRequire('RPC_ADDR');
+config.RPC_PORT = parseInt(envRequire('RPC_PORT'), 10);
 
-config.MAX_VALID_HEIGHT_DIFF = 50;
+config.MAX_VALID_HEIGHT_DIFF = parseInt(envRequire('MAX_VALID_HEIGHT_DIFF'), 10);
 
-config.UNHEALTHY_API_PROVIDER_STATUS = 200;
-config.HEALTHY_STATUS_CODE = 200;
-config.UNHEALTHY_STATUS_CODE = 500;
+config.UNHEALTHY_API_PROVIDER_STATUS = parseInt(envRequire('UNHEALTHY_API_PROVIDER_STATUS'), 10);
+config.HEALTHY_STATUS_CODE = parseInt(envRequire('HEALTHY_STATUS_CODE'), 10);
+config.UNHEALTHY_STATUS_CODE = parseInt(envRequire('UNHEALTHY_STATUS_CODE'), 10);
 
 module.exports = config;

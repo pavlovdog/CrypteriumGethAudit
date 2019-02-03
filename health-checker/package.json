@@ -4,7 +4,8 @@
   "description": "Server-lke application for checking the sync status of the Geth node",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "env $(cat ./envs/dev.env | xargs) node index.js",
+    "prod": "env $(cat ./envs/prod.env | xargs) node index.js"
   },
   "author": "",
   "license": "ISC",
