@@ -2,6 +2,22 @@ const winston = require('winston');
 const request = require('request');
 const Web3 = require('web3');
 
+
+/**
+ * envRequire - returns the variable from the environment.
+ * If the error not found - throw an error.
+ *
+ * @param  {type} varName Name of the varibale
+ * @return {type}         Variable value
+ */
+function envRequire(varName) {
+  if (process.env[varName] === undefined) {
+    throw new Error(`Environment variable ${varName} is required.`);
+  }
+
+  return process.env[varName];
+}
+
 const logger = winston.createLogger({
   transports: [
     new winston.transports.Console(),
@@ -9,10 +25,8 @@ const logger = winston.createLogger({
 });
 
 /**
- * In this code we will use the BlockCypher API
- * For public methods it doesn't require any keys and so on
- * The rate limit is also pretty high
- * > Classic requests, up to 3 requests/sec and 200 requests/hr
+ * Getting the blockchain height from the node RPC.
+ *
  * @see https://www.blockcypher.com/dev/ethereum/#rate-limits-and-tokens
  * @param   {object}    config Serice condifguration, check ./config.js
  * @param   {string}    config.RPC_ADDR IP address of the RPC listener
@@ -38,6 +52,7 @@ async function getLatestBlockNumberByRPC(config) {
  * For public methods it doesn't require any keys and so on
  * The rate limit is also pretty high
  * > Classic requests, up to 3 requests/sec and 200 requests/hr
+ *
  * @see https://www.blockcypher.com/dev/ethereum/#rate-limits-and-tokens
  * @param   {object}    config Serice condifguration, check ./config.js
  * @param   {string}    config.REMOTE_URL URL to make request to
@@ -61,4 +76,5 @@ module.exports = {
   logger,
   getLatestBlockNumberByRPC,
   getLatestBlockNumberByRemoteAPI,
+  envRequire,
 };
