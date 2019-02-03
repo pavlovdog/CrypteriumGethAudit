@@ -2,10 +2,26 @@ version: '3'
 
 services:
   geth:
-    image: ethereum/client-go
+    image: ethereum/client-go:v1.8.22
     volumes:
       - /home/ubuntu/:/geth
-    command: "--cache 2048 --maxpeers 50 --datadir geth/.ethereum --rpcapi admin,debug,miner,shh,txpool,personal,eth,net,web3  --rpcport 8545 --rpc --rpcvhosts=* --verbosity=3"
+    command: "--cache 2048 --syncmode 'fast' --maxpeers 50 --datadir geth/.ethereum  --rpcapi admin,debug,miner,shh,txpool,personal,eth,net,web3 --rpc --rpcvhosts=* --ethstats=node:YWRzZm1md29lbmlvMjMxMjEyMg==@ethstats:3000 --verbosity=4"
     restart: on-failure
     networks:
-      - production
+      - project
+    ports:
+      - 30303:30303
+      - 30303:30303/udp
+
+  healthchecker:
+    build:
+      context: .
+      dockerfile: docker/healthchecker/Dockerfile
+    restart: on-failure
+    ports:
+      - 5050:5050
+    volumes:
+      - ./:/app
+
+networks:
+  project:

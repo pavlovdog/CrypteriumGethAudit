@@ -5,7 +5,7 @@ config.SERVER_LISTEN_PORT = 5050;
 
 config.REMOTE_URL = 'https://api.blockcypher.com/v1/eth/main';
 
-config.RPC_ADDR = '127.0.0.1';
+config.RPC_ADDR = 'geth';
 config.RPC_PORT = 8545;
 
 config.MAX_VALID_HEIGHT_DIFF = 50;
