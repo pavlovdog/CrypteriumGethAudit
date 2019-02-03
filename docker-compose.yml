@@ -24,6 +24,8 @@ services:
       - ./:/app
     networks:
       - project
+    env_file:
+      - health-checker/envs/prod.env
 
 networks:
   project:
