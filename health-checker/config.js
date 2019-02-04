@@ -3,6 +3,7 @@ const { envRequire } = require('./utils');
 const config = {};
 
 config.SERVER_LISTEN_PORT = parseInt(envRequire('SERVER_LISTEN_PORT'), 10);
+config.SERVER_LISTEN_ADDR = envRequire('SERVER_LISTEN_ADDR');
 
 config.REMOTE_URL = envRequire('REMOTE_URL');
 

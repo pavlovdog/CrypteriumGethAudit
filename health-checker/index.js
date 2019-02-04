@@ -6,7 +6,7 @@ const {
   getLatestBlockNumberByRemoteAPI,
 } = require('./utils');
 
-logger.info(`Starting health-checker service on ${config.SERVER_LISTEN_PORT}`);
+logger.info(`Starting health-checker service on ${config.SERVER_LISTEN_ADDR}:${config.SERVER_LISTEN_PORT}`);
 
 http.createServer(async (req, res) => {
   logger.info('Received the health-check request');
@@ -63,4 +63,4 @@ http.createServer(async (req, res) => {
 
   res.end();
   return;
-}).listen(config.SERVER_LISTEN_PORT);
+}).listen(config.SERVER_LISTEN_PORT, config.SERVER_LISTEN_ADDR);
