@@ -6,16 +6,16 @@ const {
   getLatestBlockNumberByRemoteAPI,
 } = require('./utils');
 
-logger.info(`Starting health-checker service on ${config.SERVER_LISTEN_ADDR}:${config.SERVER_LISTEN_PORT}`);
+logger.debug(`Starting health-checker service on ${config.SERVER_LISTEN_ADDR}:${config.SERVER_LISTEN_PORT}`);
 
 http.createServer(async (req, res) => {
-  logger.info('Received the health-check request');
+  logger.debug('Received the health-check request');
 
   // Execute the request to the RPC
   const localLatestBlockNumber = await getLatestBlockNumberByRPC(config);
   // - Check that the status is `true`
   // in this case the instance is definetly unhealthy
-  if (localLatestBlockNumber.status === false) {
+  if (localLatestBlockNumber.status === false || localLatestBlockNumber.data === undefined) {
     logger.error(`Unhealthy node, error message: ${localLatestBlockNumber.message}`);
 
     res.writeHead(config.UNHEALTHY_STATUS_CODE);
@@ -26,7 +26,7 @@ http.createServer(async (req, res) => {
   // Execute the request to the Etherscan
   const globalLatestBlockNumber = await getLatestBlockNumberByRemoteAPI(config);
   // - Check that everything is okey
-  if (localLatestBlockNumber.status === false) {
+  if (globalLatestBlockNumber.status === false || globalLatestBlockNumber.data === undefined) {
     logger.warn(`Unhealthy API provider (${config.REMOTE_URL}), error message: ${localLatestBlockNumber.message}`);
 
     // Unhealthy API provider doesn't tell us anything about the health of the node
