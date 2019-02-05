@@ -4,15 +4,15 @@
 
 ## Содержание
 
-1. Настройка IAM
-2. Настройка VPC
-3. Настройка Security Group
-4. Создание инстансов
-5. Создание балансировщика нагрузки
-6. Установка контейнеров в инстансе
-7. Запуск и использование
-8. Подключение EthStats dashboard
-9. Ссылки
+1. [Настройка IAM](https://github.com/pavlovdog/GethCluster#%D0%BD%D0%B0%D1%81%D1%82%D1%80%D0%BE%D0%B9%D0%BA%D0%B0-iam)
+2. [Настройка VPC](https://github.com/pavlovdog/GethCluster#%D0%BD%D0%B0%D1%81%D1%82%D1%80%D0%BE%D0%B9%D0%BA%D0%B0-vpc)
+3. [Настройка Security Group](https://github.com/pavlovdog/GethCluster#%D0%BD%D0%B0%D1%81%D1%82%D1%80%D0%BE%D0%B9%D0%BA%D0%B0-security-group)
+4. [Создание инстансов](https://github.com/pavlovdog/GethCluster#%D1%81%D0%BE%D0%B7%D0%B4%D0%B0%D0%BD%D0%B8%D0%B5-%D0%B8%D0%BD%D1%81%D1%82%D0%B0%D0%BD%D1%81%D0%BE%D0%B2)
+5. [Создание балансировщика нагрузки](https://github.com/pavlovdog/GethCluster#%D1%81%D0%BE%D0%B7%D0%B4%D0%B0%D0%BD%D0%B8%D0%B5-%D0%B1%D0%B0%D0%BB%D0%B0%D0%BD%D1%81%D0%B8%D1%80%D0%BE%D0%B2%D1%89%D0%B8%D0%BA%D0%B0-%D0%BD%D0%B0%D0%B3%D1%80%D1%83%D0%B7%D0%BA%D0%B8)
+6. [Установка контейнеров в инстансе](https://github.com/pavlovdog/GethCluster#%D1%83%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%BA%D0%B0-%D0%BA%D0%BE%D0%BD%D1%82%D0%B5%D0%B9%D0%BD%D0%B5%D1%80%D0%BE%D0%B2-%D0%B2-%D0%B8%D0%BD%D1%81%D1%82%D0%B0%D0%BD%D1%81%D0%B5)
+7. [Запуск и использование](https://github.com/pavlovdog/GethCluster#%D0%B7%D0%B0%D0%BF%D1%83%D1%81%D0%BA-%D0%B8-%D0%B8%D1%81%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5)
+8. [Подключение EthStats dashboard](https://github.com/pavlovdog/GethCluster#%D0%BF%D0%BE%D0%B4%D0%BA%D0%BB%D1%8E%D1%87%D0%B5%D0%BD%D0%B8%D0%B5-ethstats-dashboard)
+9. [Ссылки](https://github.com/pavlovdog/GethCluster#%D1%81%D1%81%D1%8B%D0%BB%D0%BA%D0%B8)
 
 ## Настройка IAM
 
