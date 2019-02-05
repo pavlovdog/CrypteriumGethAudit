@@ -5,7 +5,7 @@ services:
     image: ethereum/client-go:v1.8.22
     volumes:
       - /home/ubuntu/:/geth
-    command: "--cache 2048 --syncmode 'fast' --maxpeers 50 --datadir geth/.ethereum  --rpcapi admin,debug,miner,shh,txpool,personal,eth,net,web3 --rpc --rpcvhosts=* --rpcaddr 0.0.0.0 --ethstats=node:YWRzZm1md29lbmlvMjMxMjEyMg==@ethstats:3000 --verbosity=4"
+    command: "--cache 4096 --syncmode 'fast' --maxpeers 30 --datadir geth/.ethereum  --rpcapi admin,debug,miner,shh,txpool,personal,eth,net,web3 --rpc --rpcvhosts=* --rpcaddr 0.0.0.0 --ethstats=node:YWRzZm1md29lbmlvMjMxMjEyMg==@ethstats:3000 --verbosity=4"
     restart: on-failure
     networks:
       - project
