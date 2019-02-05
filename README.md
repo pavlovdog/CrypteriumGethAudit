@@ -87,11 +87,32 @@
 ## Создание балансировщика нагрузки
 
 1. После авторизации, в секции **EC2**, в меню слева выберите секцию **Load balancing** -> **Load Balancers**.
-2. Нажмите кнопку **Create Load Balancer**. В открывшемся меню выберите **Application Load Balancer**. Укажите имя балансировщика, схему `intenet-facing` и `dualstick` в поле **IP address type**. В список портов, которые будет проксировать балансиорвщик добавьте `HTTP 8545` (стнадартный порт для RPC Geth).
+2. Нажмите кнопку **Create Load Balancer**. В открывшемся меню выберите **Application Load Balancer**. Укажите имя балансировщика, схему `intenet-facing` и `dualstick` в поле **IP address type**. В список портов, которые будет проксировать балансировщик добавьте `HTTP 8545` (стнадартный порт для RPC Geth).
 
 ![load_balancer_config](/home/pavlovdog/CrypteriumGethAudit/images/EC2_load_balancer_config.png)
 
-5. После этого необходимо указать используемую VPC и список Availability Zones, в которых будет расположены инстансы.
+5. Укажите используемую VPC и список Availability Zones, в которых будет расположены инстансы.
+6. Выберите необходимую **Security Group** и нажмите кнопку **Next: Configurate Routing**.
+7. Настройте необходимые параметры для процесса health check в соответствии со скринштом.
+
+![settings](/home/pavlovdog/CrypteriumGethAudit/images/EC2_load_balancer_settings.png)
+
+8. Добавьте необходимые инстансы в группу targets и запустите балансировщик.
+
+![register](/home/pavlovdog/CrypteriumGethAudit/images/EC2_load_balancer_register.png)
+
+9. Зайдите в левое меню, **Load Balancing** -> **Load Balancers** и проверьте созданный балансировщик.
+10. Настройки портов (вкладка **Description**). Здесь и ниже в настройках присутствует порт 80 - вам его добавлять не обязательно.
+
+![port_conf](/home/pavlovdog/CrypteriumGethAudit/images/EC2_port_forwarding.png)
+
+11. Настройки Health Check
+
+![health_check](/home/pavlovdog/CrypteriumGethAudit/images/EC2_health_check.png)
+
+12. Настройки listeners
+
+![listeners](/home/pavlovdog/CrypteriumGethAudit/images/EC2_listeners.png)
 
 ## Установка контейнеров в инстансе
 
