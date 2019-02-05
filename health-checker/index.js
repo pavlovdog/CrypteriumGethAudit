@@ -4,6 +4,7 @@ const {
   logger,
   getLatestBlockNumberByRPC,
   getLatestBlockNumberByRemoteAPI,
+  getLatestBlockNumberByRemoteWeb3,
 } = require('./utils');
 
 logger.debug(`Starting health-checker service on ${config.SERVER_LISTEN_ADDR}:${config.SERVER_LISTEN_PORT}`);
@@ -23,8 +24,8 @@ http.createServer(async (req, res) => {
     return;
   }
 
-  // Execute the request to the Etherscan
-  const globalLatestBlockNumber = await getLatestBlockNumberByRemoteAPI(config);
+  // Execute the request to the Infura API
+  const globalLatestBlockNumber = await getLatestBlockNumberByRemoteWeb3(config);
   // - Check that everything is okey
   if (globalLatestBlockNumber.status === false || globalLatestBlockNumber.data === undefined) {
     logger.warn(`Unhealthy API provider (${config.REMOTE_URL}), error message: ${localLatestBlockNumber.message}`);

@@ -16,4 +16,6 @@ config.UNHEALTHY_API_PROVIDER_STATUS = parseInt(envRequire('UNHEALTHY_API_PROVID
 config.HEALTHY_STATUS_CODE = parseInt(envRequire('HEALTHY_STATUS_CODE'), 10);
 config.UNHEALTHY_STATUS_CODE = parseInt(envRequire('UNHEALTHY_STATUS_CODE'), 10);
 
+config.REMOTE_WEB3_URL = envRequire('REMOTE_WEB3_URL');
+
 module.exports = config;

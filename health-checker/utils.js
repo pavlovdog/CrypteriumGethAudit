@@ -72,9 +72,36 @@ async function getLatestBlockNumberByRemoteAPI(config) {
   });
 }
 
+
+/**
+ * getLatestBlockNumberByRemoteWeb3 - Receive the latest block number,
+ * using some remote RPC provider. In this example we're gonna use the Infura
+ * API.
+ *
+ * @param   {object}    config Serice condifguration, check ./config.js
+ * @param   {string}    config.REMOTE_URL URL to make request to
+ * @return  {Promise}   Promise object represents the latest block number or some error
+ */
+async function getLatestBlockNumberByRemoteWeb3(config) {
+  return new Promise(async (resolve) => {
+    const web3 = new Web3(
+      new Web3.providers.HttpProvider(config.REMOTE_WEB3_URL),
+    );
+
+    try {
+      const blockNumber = await web3.eth.getBlockNumber();
+      return resolve({ status: true, data: blockNumber });
+    } catch (err) {
+      return resolve({ status: false, message: err.message });
+    }
+  });
+}
+
+
 module.exports = {
   logger,
   getLatestBlockNumberByRPC,
   getLatestBlockNumberByRemoteAPI,
+  getLatestBlockNumberByRemoteWeb3,
   envRequire,
 };
