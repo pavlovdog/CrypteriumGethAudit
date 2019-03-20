@@ -15,17 +15,17 @@ services:
       - 8545:8545
       - 8546:8546
 
-    ethstats:
-      build:
-        context: .
-        dockerfile: docker/ethstats/Dockerfile
-      restart: on-failure
-      environment:
-        - WS_SECRET={ETHSTATS_SECRET}
-      ports:
-        - 3000:3000
-      networks:
-        - project
+  ethstats:
+    build:
+      context: .
+      dockerfile: docker/ethstats/Dockerfile
+    restart: on-failure
+    environment:
+      - WS_SECRET={ETHSTATS_SECRET}
+    ports:
+      - 3000:3000
+    networks:
+      - project
 
   healthchecker:
     build:
