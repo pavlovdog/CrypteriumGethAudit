@@ -1,6 +1,6 @@
-FROM node:8-alpine
+FROM node:10
 
-RUN apk add --update git
+RUN apt-get update && apt-get install git
 
 RUN git clone https://github.com/cubedro/eth-netstats
 
